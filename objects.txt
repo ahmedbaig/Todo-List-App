@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TODO list</title>
+
+	  	<meta charset="UTF-8">
+	  	<meta name="description" content="Todo List App Assignment">
+	  	<meta name="keywords" content="HTML,CSS,JS,JavaScript,Jquery,Bootstrap">
+	  	<meta name="author" content="Ahmed Baig">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--links -->
+	<link 
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+		rel="stylesheet" 
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+		crossorigin="anonymous">
+	<link 
+		rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
+		integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" 
+		crossorigin="anonymous">
+	<link 
+		rel="stylesheet" 
+		href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script 
+		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" 
+		crossorigin="anonymous">
+		</script>
+	<script 
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" 
+		crossorigin="anonymous">	
+		</script>
+	<style type="text/css">
+		body{
+			position: relative;
+			background: #953163;
+			font-size: 20px;
+			position: relative;
+ 			margin: 0;
+  			padding-bottom: 6rem;
+  			min-height: 100%;
+  			font-family: "Helvetica Neue", Arial, sans-serif;
+			background-image: url("http://cdn.wallpapersafari.com/2/53/506V7F.jpg");
+		}
+		.container{
+			padding-bottom: 30px;
+		}
+		a{
+			color: #D4D4D4;
+		}
+		a:hover{
+			outline-style: none;
+			color: #60646D;
+		}
+		.card{
+			position: relative;
+			top: 50px;
+			padding-bottom: 0;
+			padding-top: 20px;
+			background: #FFFFF7;
+			border-radius: 5px;
+			box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.5);
+		}
+		.card-content input[type=text]{
+			outline-style: none;
+		}
+		.card-content div.fa-times{
+			outline-color: transparent;
+			outline-style: none;
+		}
+		input[type=checkbox]{
+			display: inline;
+		}
+		.items{
+			height: 300px;
+			overflow: scroll;
+		}
+		small{
+			font-size: 12px;
+		}
+		.footer{
+			box-shadow: inset 0px 7px 11px 0px rgba(0,0,0,0.5);
+			background-image: none;
+			background-color: #43353D;
+			color: #FFFFF7;
+			font-size: 16px;
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding-top: 10px;
+		}
+	</style>
+</head>
+<body>
+<div class="container-fluid">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card col-md-12">
+					<div class="card-header">
+						<h1 >
+							Todo List App
+						</h1>
+					</div>
+					<div class="card-content">
+						<form class='form'>
+							<div class="form-group has-float-label">
+								<label for='taskName'></label>
+								<div class="input-group">
+									<div id='guide' class="input-group-addon fa fa-tasks"></div>
+									<input type="text"  class="form-control" name="taskName" placeholder="Enter Task">
+	     							<div class="input-group-addon btn btn-danger clear fa fa-times"></div>
+	     							<div class="input-group-addon btn btn-success check fa fa-check"></div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card col-md-12">
+					<div class="list card-content">
+						<p class='entries'></p>
+						<div class="items"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class='footer navbar-fixed-bottom'>
+		<div class="row">
+			<div class="col-md-11 col-sm-11 col-xs-11">
+				<div class='pull-right'>
+					<p>Developed by <i><a href='https://www.linkedin.com/in/ahmedbaig1/'>Ahmed Baig</a></i></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+<!-- UX script -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.clear').click(function(){
+			$('input[type=text]').val('');
+		});
+	});
+</script>
+<!-- list script -->
+<script type="text/javascript">
+var taskList = []; var entries; var total;
+
+$(document).ready(function(){
+	print();
+	$('.check').click(function(){
+		$('.items').empty();
+		var task = $('input[type=text]').val();
+		$('input[type=text]').val('');
+		taskCreator(task);
+		print();
+	});
+});
+
+$(document).on('change', '.checkbox', function() {
+    if(this.checked) {
+    	var id = $(this).attr('id');
+    	taskList[id].status = 'checked';
+    	$('.items').empty();
+    	print();
+    }else{
+    	var id = $(this).attr('id');
+    	taskList[id].status = 'unchecked';
+    	$('.items').empty();
+    	print();
+    }
+});
+
+$(document).on('click', '#remove', function(){
+    var id = parseInt($(this).siblings('input').attr('id'));
+    taskList.splice(id, 1);
+    $('.items').empty();
+    print();
+});
+
+$(document).on('click', '#edit', function(){
+    var id = parseInt($(this).siblings('input').attr('id'));
+    edit(id);
+    print();
+});
+
+function task(taskname){//Constructor Function
+	this.taskname = taskname;
+	this.date = function(){
+		var date = new Date().toString();
+		return date.substr(0,15);
+	};
+	this.status = 'unchecked';
+}
+
+function taskCreator(name){
+	var name = new task(name);
+	taskList.push(name);
+}
+
+function print(){
+	entries = taskList.length;
+	total = entries;
+	for(i = 0; i < taskList.length; i++){
+		if(taskList[i].status === 'checked'){
+			if(entries !== 0){
+				entries--;
+			}
+		}
+	}	
+	$('.entries').empty().append(entries +' of ' + total + ' remaining ');
+	$('.entries').append('[<a href="javascript:void(0)" onclick="refresh()">Refresh</a>]');
+	for (var i=0; i < taskList.length; i++){
+		$('.items').append('<p class="task'+i+'"><input class="checkbox" id='+i+' type="checkbox"'+taskList[i].status+'> ');
+			if(taskList[i].status === 'checked'){
+				$('.task'+i).append('<s>'+taskList[i].taskname+' on </s> ');
+			}else{
+				$('.task'+i).append(taskList[i].taskname+' on ');
+			}
+		$('.task'+i).append('<small>'+taskList[i].date()+'</small><i id="remove" class="fa fa-times btn btn-danger pull-right"></i></p>');
+	}
+}
+
+function refresh(){
+	total = entries;
+	for(i = 0; i < taskList.length; i++){
+		if(taskList[i].status === 'checked'){
+			taskList.splice(i, 1);
+		}
+	$('.items').empty();
+	print();
+	}
+}
+</script>

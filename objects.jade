@@ -1,0 +1,112 @@
+doctype html
+html
+ head
+  title TODO list
+  meta(charset='UTF-8')
+  meta(name='description', content='Todo List App Assignment')
+  meta(name='keywords', content='HTML,CSS,JS,JavaScript,Jquery,Bootstrap')
+  meta(name='author', content='Ahmed Baig')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  // links
+  link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', rel='stylesheet', integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', crossorigin='anonymous')
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css', integrity='sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ', crossorigin='anonymous')
+  link(rel='stylesheet', href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
+  script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=', crossorigin='anonymous')
+  script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js', integrity='sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn', crossorigin='anonymous')
+  style(type='text/css').
+   body{
+   position: relative;
+   background: #953163;
+   font-size: 20px;
+   position: relative;
+   margin: 0;
+   padding-bottom: 6rem;
+   min-height: 100%;
+   font-family: "Helvetica Neue", Arial, sans-serif;
+   background-image: url("http://cdn.wallpapersafari.com/2/53/506V7F.jpg");
+   }
+   .container{
+   padding-bottom: 30px;
+   }
+   a{
+   color: #D4D4D4;
+   }
+   a:hover{
+   outline-style: none;
+   color: #60646D;
+   }
+   .card{
+   position: relative;
+   top: 50px;
+   padding-bottom: 0;
+   padding-top: 20px;
+   background: #FFFFF7;
+   border-radius: 5px;
+   box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.5);
+   }
+   .card-content input[type=text]{
+   outline-style: none;
+   }
+   .card-content div.fa-times{
+   outline-color: transparent;
+   outline-style: none;
+   }
+   input[type=checkbox]{
+   display: inline;
+   }
+   .items{
+   height: 300px;
+   overflow: scroll;
+   }
+   small{
+   font-size: 12px;
+   }
+   .footer{
+   box-shadow: inset 0px 7px 11px 0px rgba(0,0,0,0.5);
+   background-image: none;
+   background-color: #43353D;
+   color: #FFFFF7;
+   font-size: 16px;
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   padding-top: 10px;
+   }
+ body
+  .container-fluid
+   .container
+    .row
+     .col-md-12
+      .card.col-md-12
+       .card-header
+        h1
+         | Todo List App
+       .card-content
+        form.form
+         .form-group.has-float-label
+          label(for='taskName')
+          .input-group
+           #guide.input-group-addon.fa.fa-tasks
+           input.form-control(type='text', name='taskName', placeholder='Enter Task')
+           .input-group-addon.btn.btn-danger.clear.fa.fa-times
+           .input-group-addon.btn.btn-success.check.fa.fa-check
+    br
+    .row
+     .col-md-12
+      .card.col-md-12
+       .list.card-content
+        p.entries
+        .items
+   .footer.navbar-fixed-bottom
+    .row
+     .col-md-11.col-sm-11.col-xs-11
+      .pull-right
+       p
+        | Developed by 
+        i
+         a(href='https://www.linkedin.com/in/ahmedbaig1/') Ahmed Baig
+// UX script
+// list script
+

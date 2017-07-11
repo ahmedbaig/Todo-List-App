@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo list</title>
+
+  	<meta 
+  		charset="UTF-8">
+  	<meta 
+  		name="description" 
+  		content="Todo List App Assignment">
+  	<meta 
+  		name="keywords" 
+  		content="HTML,CSS,JS,JavaScript,Jquery,Bootstrap,Ahmedbaig">
+  	<meta 
+  		name="author" 
+  		content="Ahmed Baig">
+  	<meta 
+  		name="viewport" 
+  		content="width=device-width, initial-scale=1.0">
+
+	<!--Stylesheets -->
+	<link 
+		rel="shortcut icon" 
+		href="icon.png">
+	<link 
+		href="https://fonts.googleapis.com/css?family=Prata" 
+		rel="stylesheet"> 
+	<link 
+		rel="stylesheet" 
+		type="text/css" 
+		href="styles.css">
+	<link 
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+		rel="stylesheet" 
+		integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" 
+		crossorigin="anonymous">
+	<link 
+		rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
+		integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" 
+		crossorigin="anonymous">
+
+	<!--Script -->
+	<script 
+		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+		integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" 
+		crossorigin="anonymous">
+		</script>
+	<script 
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
+		integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" 
+		crossorigin="anonymous">	
+		</script>
+</head>
+<body>
+	<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-header text-center">
+						Todo List App
+					</h1>
+				</div>
+			</div>
+		</div> 
+		<div class="createbtn displayZero darkOne">
+			<i class="fa fa-plus"></i>
+		</div>
+		<div id='' class="container taskBox">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div class="newtaskbook">		
+						<div class="createbtn whiteOne">
+							<i class="fa fa-plus"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='listBox' class="container hidden">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card col-md-12">
+						<div class="list card-content">
+							<div class='form'>
+								<div class="form-group has-float-label">
+									<label for='taskName'></label>
+									<div class="input-group">
+										<input type="text" id='boxer'  class="form-control" name="taskName" placeholder="Enter Task">
+		     							<div id='check' class="input-group-addon btn btn-success fa fa-check"></div>
+									</div>
+								</div>
+							</div>
+							<p class='entries'></p>
+							<div class="items"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center buttons">
+					<div class="btn btn-danger closeBTN">CLOSE</div>
+					<div class="btn btn-success save">SAVE</div>
+				</div>
+			</div>
+		</div>
+		<div class="container taskBox">
+			<div class="row">
+				<div id='Li' class="col-md-12 text-center"></div>
+			</div>
+		</div>
+		<div class='footer navbar-fixed-bottom'>
+			<div class="row">
+				<div class="col-md-11 col-sm-11 col-xs-11">
+					<div class='pull-right'>
+						<p>Developed by <i><a href='https://www.linkedin.com/in/ahmedbaig1/'>Ahmed Baig</a></i></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+	<script 
+	 	type="text/javascript"
+	 	src='scripts.js'>
+	 	</script>
+</html>
